@@ -1,9 +1,18 @@
 import { useState } from "react";
 import "./App.css";
-import { Drawer, DrawerContent, DrawerTrigger } from "./components/ui/drawer";
+import {
+	Drawer,
+	DrawerClose,
+	DrawerContent,
+	DrawerTrigger,
+} from "./components/ui/drawer";
 
 function App() {
 	const [isSearchVisible, setIsSearchVisible] = useState(false);
+	const [isLiFaded, setIsLiFaded] = useState(false);
+	function toggleLiFaded() {
+		setIsLiFaded(!isLiFaded);
+	}
 
 	function toggleSearch() {
 		setIsSearchVisible(!isSearchVisible);
@@ -92,20 +101,24 @@ function App() {
 									<div className="mx-auto w-8/12 max-w-sm">
 										<div className="p-4 pb-0">
 											<ul className="flex flex-col gap-4 text-white md:text-xl">
-												<li className="flex items-center gap-2">
-													<img
-														src="assets/images/CodingIcon.svg"
-														alt=""
-													/>
-													Editor de Código
-												</li>
-												<li className="flex items-center gap-2">
-													<img
-														src="assets/images/peopleIcon.svg"
-														alt=""
-													/>
-													Lista Códigos
-												</li>
+												<DrawerClose>
+													<li  className={`flex items-center gap-2 ${isLiFaded ? "opacity-50" : ""}`} onClick={toggleLiFaded}>
+														<img
+															src="assets/images/CodingIcon.svg"
+															alt=""
+														/>
+														Editor de Código
+													</li>
+												</DrawerClose>
+												<DrawerClose>
+													<li className={`flex items-center gap-2 ${!isLiFaded ? "opacity-50" : ""}`} onClick={toggleLiFaded}>
+														<img
+															src="assets/images/peopleIcon.svg"
+															alt=""
+														/>
+														Lista Códigos
+													</li>
+												</DrawerClose>
 											</ul>
 										</div>
 									</div>
