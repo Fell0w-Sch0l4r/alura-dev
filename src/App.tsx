@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerTrigger } from "./components/ui/drawer";
+import { Drawer, DrawerContent, DrawerTrigger } from "./components/ui/drawer";
 
 function App() {
 	const [isSearchVisible, setIsSearchVisible] = useState(false);
