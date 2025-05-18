@@ -89,7 +89,7 @@ function App() {
 										/>
 									</button>
 								</DrawerTrigger>
-								<DrawerContent>
+								<DrawerContent className="bg-slate-700">
 									<div className="mx-auto w-full max-w-sm">
 										<DrawerHeader>
 											<DrawerTitle>Menu</DrawerTitle>
