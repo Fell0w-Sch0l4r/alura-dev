@@ -10,10 +10,13 @@ import {
 function App() {
 	const [isSearchVisible, setIsSearchVisible] = useState(false);
 	const [isLiFaded, setIsLiFaded] = useState(false);
-	function toggleLiFaded() {
-		setIsLiFaded(!isLiFaded);
+	function toggleLiFaded(num: number) {
+		if (num === 0) {
+			setIsLiFaded(false);
+		} else {
+			setIsLiFaded(true);		
 	}
-
+	}
 	function toggleSearch() {
 		setIsSearchVisible(!isSearchVisible);
 	}
@@ -102,7 +105,7 @@ function App() {
 										<div className="p-4 pb-0">
 											<ul className="flex flex-col gap-4 text-white md:text-xl">
 												<DrawerClose>
-													<li  className={`flex items-center gap-2 ${isLiFaded ? "opacity-50" : ""}`} onClick={toggleLiFaded}>
+													<li  className={`flex items-center gap-2 ${isLiFaded ? "opacity-50" : ""}`} onClick={() => toggleLiFaded(0)}>
 														<img
 															src="assets/images/CodingIcon.svg"
 															alt=""
@@ -111,7 +114,7 @@ function App() {
 													</li>
 												</DrawerClose>
 												<DrawerClose>
-													<li className={`flex items-center gap-2 ${!isLiFaded ? "opacity-50" : ""}`} onClick={toggleLiFaded}>
+													<li className={`flex items-center gap-2 ${!isLiFaded ? "opacity-50" : ""}`} onClick={() => toggleLiFaded(1)}>
 														<img
 															src="assets/images/peopleIcon.svg"
 															alt=""
