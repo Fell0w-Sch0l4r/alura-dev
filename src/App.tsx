@@ -89,17 +89,21 @@ function App() {
 										/>
 									</button>
 								</DrawerTrigger>
-								<DrawerContent className="bg-slate-700">
+								<DrawerContent className="bg-slate-700 b-none">
 									<div className="mx-auto w-full max-w-sm">
 										<DrawerHeader>
-											<DrawerTitle>Menu</DrawerTitle>
+											<DrawerTitle className="text-center">
+												<img
+													className="sm:w-44 lg:w-60"
+													src="assets/images/Logo.svg"
+													alt=""
+												/>
+											</DrawerTitle>
 										</DrawerHeader>
 										<div className="p-4 pb-0">
-											<ul className="flex flex-col gap-4">
-												<li>Home</li>
-												<li>Sobre</li>
-												<li>Contato</li>
-												<li>Ajuda</li>
+											<ul className="flex flex-col gap-4 text-white items-center">
+												<li>Editor</li>
+												<li>Códigos</li>
 											</ul>
 										</div>
 									</div>
