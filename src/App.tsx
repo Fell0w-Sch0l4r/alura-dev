@@ -42,7 +42,7 @@ function App() {
 						
 					</ul>
 				</div>
-				<section className=" border-green-400 mt-6 w-11/12 mx-auto lg:w-9/12 text-white border">
+				<section className=" border-green-400 mt-6 w-11/12 mx-auto lg:w-9/12 text-white">
 					{activeMenu === "editor" ? <h1>Editor</h1> : <h1>Lista</h1>}
 					{activeMenu === "editor" && <CodeInput/>}
 					
