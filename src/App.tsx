@@ -1,136 +1,49 @@
 import { useState } from "react";
 import "./App.css";
-import {
-	Drawer,
-	DrawerClose,
-	DrawerContent,
-	DrawerTrigger,
-} from "./components/ui/drawer";
+
+import NavBar from "./components/NavBar";
 
 function App() {
-	const [isSearchVisible, setIsSearchVisible] = useState(false);
-	const [isLiFaded, setIsLiFaded] = useState(false);
-	function toggleLiFaded(num: number) {
-		if (num === 0) {
-			setIsLiFaded(false);
-		} else {
-			setIsLiFaded(true);		
+	
+	const [activeMenu, setActiveMenu] = useState<"editor" | "list">("editor");
+	function handleMenuSelect(menu: "editor" | "list") {
+		setActiveMenu(menu);
 	}
-	}
-	function toggleSearch() {
-		setIsSearchVisible(!isSearchVisible);
-	}
+	
 	return (
 		<>
 			<header className="">
-				<nav className="flex justify-between mt-5 px-6 items-center lg:w-10/12">
-					{!isSearchVisible && (
-						<div className="">
-							<img
-								className="sm:w-44 lg:w-60"
-								src="assets/images/Logo.svg"
-								alt=""
-							/>
-						</div>
-					)}
-
-					{isSearchVisible && (
-						<search className="justify-between w-full flex sm:w-7/12 lg:w-5/12">
-							<form className="w-full sm:block">
-								<input
-									placeholder="Pesquisar"
-									className="h-11 w-11/12 rounded-xl bg-slate-700 pl-5 focus:outline-none placeholder:font-semibold placeholder:opacity-50 placeholder:text-white text-white lg:h-16"
-									type="search"
-									id="searchInput"
-									name="q"
-								/>
-							</form>
-
-							<button id="closeBtn" onClick={toggleSearch}>
-								<img
-									className="size-6"
-									src="assets/images/x.svg"
-									alt=""
-								/>
-							</button>
-						</search>
-					)}
-					<form className="w-full hidden sm:flex sm:w-7/12 lg:w-5/12">
-						<input
-							placeholder="Pesquisar"
-							className="h-11 w-11/12 rounded-xl bg-slate-700 pl-5 focus:outline-none placeholder:font-semibold placeholder:opacity-50 placeholder:text-white text-white lg:h-20 lg:placeholder:text-2xl lg:text-2xl"
-							type="search"
-							id="searchInput"
-							name="q"
-						/>
-					</form>
-
-					{!isSearchVisible && (
-						<div
-							id="btns"
-							className="flex justify-between w-20 items-center sm:w-fit"
-						>
-							<button
-								id="searchBtn"
-								className="sm:hidden"
-								onClick={toggleSearch}
-							>
-								<img
-									className="size-6"
-									src="assets/images/magGlass.svg"
-									alt=""
-								/>
-							</button>
-
-							{/* <button className="lg:hidden">
-                                <img
-                                    className="size-6"
-                                    src="assets/images/menu.svg"
-                                    alt=""
-                                />
-                            </button> */}
-
-							<Drawer>
-								<DrawerTrigger asChild>
-									<button className="lg:hidden">
-										<img
-											className="size-6"
-											src="assets/images/menu.svg"
-											alt=""
-										/>
-									</button>
-								</DrawerTrigger>
-								<DrawerContent className="bg-slate-700 b-none shad h-50">
-									<div className="mx-auto w-8/12 max-w-sm">
-										<div className="p-4 pb-0">
-											<ul className="flex flex-col gap-4 text-white md:text-xl">
-												<DrawerClose>
-													<li  className={`flex items-center gap-2 ${isLiFaded ? "opacity-50" : ""}`} onClick={() => toggleLiFaded(0)}>
-														<img
-															src="assets/images/CodingIcon.svg"
-															alt=""
-														/>
-														Editor de Código
-													</li>
-												</DrawerClose>
-												<DrawerClose>
-													<li className={`flex items-center gap-2 ${!isLiFaded ? "opacity-50" : ""}`} onClick={() => toggleLiFaded(1)}>
-														<img
-															src="assets/images/peopleIcon.svg"
-															alt=""
-														/>
-														Lista Códigos
-													</li>
-												</DrawerClose>
-											</ul>
-										</div>
-									</div>
-								</DrawerContent>
-							</Drawer>
-						</div>
-					)}
-				</nav>
+				<NavBar activeMenu={activeMenu} handleMenuSelect={handleMenuSelect}/>
 			</header>
+
+			<main className="lg:flex lg:justify-center lg:mt-10 border-red-500">
+				<div className="text-white hidden lg:block border-white text-2xl h-50 ml-5">
+					<h2>Menu</h2>
+					<ul>
+						<li
+							onClick={() => handleMenuSelect("editor")}
+							className={`flex items-center gap-2 mb-5 mt-3 cursor-pointer ${
+								activeMenu === "editor" ? "" : "opacity-50"
+							}`}
+						>
+							<img src="assets/images/CodingIcon.svg" alt="" />
+							Editor de Código
+						</li>
+						<li
+							onClick={() => handleMenuSelect("list")}
+							className={`flex items-center gap-2 cursor-pointer ${
+								activeMenu === "list" ? "" : "opacity-50"
+							}`}
+						>
+							<img src="assets/images/peopleIcon.svg" alt="" />
+							Lista Códigos
+						</li>
+					</ul>
+				</div>
+				<section className=" border-green-400 mt-6 w-11/12 mx-auto lg:w-9/12 text-white">
+					{activeMenu === "editor" ? <h1>Editor</h1> : <h1>Lista</h1>}
+				</section>
+			</main>
 		</>
 	);
 }
