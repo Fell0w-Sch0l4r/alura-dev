@@ -13,7 +13,7 @@ function NavBar({ activeMenu, handleMenuSelect }: NavBarProps) {
 		setIsSearchVisible(!isSearchVisible);
 	}
 	return (
-		<nav className="flex justify-between mt-5 px-6 items-center lg:w-full  ">
+		<nav className="flex justify-between mt-5 px-6 items-center lg:w-full">
 			{!isSearchVisible && (
 				<div className="">
 					<img
@@ -55,13 +55,18 @@ function NavBar({ activeMenu, handleMenuSelect }: NavBarProps) {
 				/>
 			</form>
 
+			<div className="hidden lg:flex lg:gap-2 lg:items-center text-white text-2xl">
+				<img className="size-13 rounded-full hidden lg:inline xl:size-20" src="assets/images/user.jpg" alt="" />
+				Harry
+			</div>
+			
+		
+
 			{!isSearchVisible && (
 				<div
-					id="btns"
-					className="flex justify-between w-20 items-center sm:w-fit"
+					className="flex justify-between w-20 items-center sm:w-fit lg:hidden"
 				>
 					<button
-						id="searchBtn"
 						className="sm:hidden"
 						onClick={toggleSearch}
 					>
@@ -75,7 +80,7 @@ function NavBar({ activeMenu, handleMenuSelect }: NavBarProps) {
 					{/* whenever it is possible, turn this menu button into a component, it need global state management and/or something from tanstack */}
 					<Drawer>
 						<DrawerTrigger asChild>
-							<button className="lg:hidden">
+							<button className="">
 								<img
 									className="size-6"
 									src="assets/images/menu.svg"
@@ -83,7 +88,7 @@ function NavBar({ activeMenu, handleMenuSelect }: NavBarProps) {
 								/>
 							</button>
 						</DrawerTrigger>
-						<DrawerContent className="bg-slate-700 b-none shad h-50">
+						<DrawerContent className="bg-slate-700 b-none shad h-60">
 							<div className="mx-auto w-8/12 max-w-sm">
 								<div className="p-4 pb-0">
 									<ul className="flex flex-col gap-4 text-white md:text-xl">
@@ -121,6 +126,16 @@ function NavBar({ activeMenu, handleMenuSelect }: NavBarProps) {
 													alt=""
 												/>
 												Lista Códigos
+											</li>
+										</DrawerClose>
+										<DrawerClose>
+											<li className="flex items-center gap-2 ">
+												<img
+													className="size-13 rounded-full"
+													src="assets/images/user.jpg"
+													alt=""
+												/>
+												Harry
 											</li>
 										</DrawerClose>
 									</ul>
