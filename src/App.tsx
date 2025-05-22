@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 
 import NavBar from "./components/NavBar";
+import CodeInput from "./components/CodeInput";
 
 function App() {
 	
@@ -16,7 +17,7 @@ function App() {
 				<NavBar activeMenu={activeMenu} handleMenuSelect={handleMenuSelect}/>
 			</header>
 
-			<main className="lg:flex lg:justify-center lg:mt-10 border-red-500">
+			<main className="lg:flex lg:justify-between lg:mt-10 border-red-500">
 				<div className="text-white hidden lg:block border-white text-2xl h-50 ml-5">
 					<h2>Menu</h2>
 					<ul>
@@ -38,10 +39,13 @@ function App() {
 							<img src="assets/images/peopleIcon.svg" alt="" />
 							Lista Códigos
 						</li>
+						
 					</ul>
 				</div>
-				<section className=" border-green-400 mt-6 w-11/12 mx-auto lg:w-9/12 text-white">
+				<section className=" border-green-400 mt-6 w-11/12 mx-auto lg:w-9/12 text-white border">
 					{activeMenu === "editor" ? <h1>Editor</h1> : <h1>Lista</h1>}
+					{activeMenu === "editor" && <CodeInput/>}
+					
 				</section>
 			</main>
 		</>
