@@ -1,20 +1,49 @@
+import { useState } from "react";
+import Editor from "react-simple-code-editor";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { highlight, languages } from "prismjs";
+import "prismjs/components/prism-clike";
+import "prismjs/components/prism-javascript";
+import "prismjs/themes/prism-tomorrow.css";
 function CodeInput() {
+	const [code, setCode] = useState("console.log('hello world')");
+
 	return (
 		<>
-		<div className=" bg-sky-300 rounded-xl h-100 flex items-center justify-center ">
-			<div className="bg-black w-10/12 h-11/12 rounded-xl  p-5">
-				<textarea
-					placeholder="Write your code here"
-					className="w-full h-full resize-none focus:outline-none placeholder:font-semibold placeholder:opacity-50 placeholder:text-white text-white"
-					name=""
-					id=""
-				></textarea>
+			<div className=" bg-sky-300 rounded-xl h-fit flex items-center justify-center p-5">
+				<Editor
+					value={code}
+					onValueChange={setCode}
+					highlight={(code) =>
+						highlight(code, languages.javascript, "javascript")
+					}
+					padding={10}
+					style={{
+						fontFamily: "monospace",
+						fontSize: 16,
+						background: "black",
+						color: "#fff",
+						borderRadius: "12px",
+						minHeight: "50px",
+						height: "fit-content",
+						width: "100%",
+					}}
+				/>
 			</div>
-		</div>
 
-		<button className="rounded-xl w-full h-15 mt-5 bg-sky-500 active:bg-sky-700 text-xl">Highlight</button>
+			
+
+			<div className=" bg-sky-300 rounded-xl h-fit flex items-center justify-center mt-5">
+				<div className="w-10/12 h-11/12 rounded-xl">
+					<SyntaxHighlighter language="python" style={oneDark}>
+						{code}
+					</SyntaxHighlighter>
+				</div>
+			</div>
+
+			
 		</>
-		
 	);
 }
 
