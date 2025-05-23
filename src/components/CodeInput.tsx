@@ -36,7 +36,7 @@ function CodeInput() {
 
 			<div className=" bg-sky-300 rounded-xl h-fit flex items-center justify-center mt-5">
 				<div className="w-10/12 h-11/12 rounded-xl">
-					<SyntaxHighlighter language="python" style={oneDark}>
+					<SyntaxHighlighter language="python" style={oneDark} showLineNumbers={true}>
 						{code}
 					</SyntaxHighlighter>
 				</div>
