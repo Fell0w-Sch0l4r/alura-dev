@@ -20,7 +20,7 @@ import "prismjs/components/prism-go";
 
 function CodeInput() {
 	const [code, setCode] = useState('console.log("Hello World")');
-	const [language, setLanguage] = useState("python");
+	const [language, setLanguage] = useState("javascript");
 	const handleLanguageChange = (
 		event: React.ChangeEvent<HTMLSelectElement>
 	) => {
@@ -80,8 +80,8 @@ function CodeInput() {
 				name=""
 				id=""
 			>
-				<option value="python">Python</option>
 				<option value="javascript">JavaScript</option>
+				<option value="python">Python</option>
 				<option value="java">Java</option>
 				<option value="c">C</option>
 				<option value="cpp">C++</option>
