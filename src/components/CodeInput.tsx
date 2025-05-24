@@ -67,7 +67,7 @@ function CodeInput() {
 						background: "black",
 						color: "#fff",
 						borderRadius: "12px",
-						minHeight: "50px",
+						minHeight: "300px",
 						height: "fit-content",
 						width: "100%",
 					}}
