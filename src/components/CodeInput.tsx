@@ -81,7 +81,7 @@ function CodeInput() {
 
     setLanguage(""); // <-- reset to default
     setBackgroundColor(""); // <-- reset to default
-    setCode('console.log("Hello World")'); // (optional) reset code editor
+    setCode(''); // (optional) reset code editor
   }
 
   function highlightCode(language: string, code: string) {
@@ -119,7 +119,7 @@ function CodeInput() {
           } rounded-xl h-fit flex items-center justify-center p-5 mb-10 lg:w-6/11 xl:w-230 xl:ml-10`}
         >
           <Editor
-          placeholder="Write your code here"
+            placeholder="Write your code here"
             value={code}
             onValueChange={setCode}
             highlight={(code) => highlightCode(language, code)}
@@ -156,7 +156,7 @@ function CodeInput() {
                           <SelectValue placeholder="Language" className="" />
                         </SelectTrigger>
                       </FormControl>
-                      <SelectContent>
+                      <SelectContent className="bg-slate-700 text-white border-none">
                         <SelectItem value="javascript">JavaScript</SelectItem>
                         <SelectItem value="python">Python</SelectItem>
                         <SelectItem value="java">Java</SelectItem>
@@ -194,7 +194,7 @@ function CodeInput() {
                         </SelectTrigger>
                       </FormControl>
 
-                      <SelectContent>
+                      <SelectContent className="bg-slate-700 text-white border-none">
                         <SelectItem value="bg-sky-300">Sky Blue</SelectItem>
                         <SelectItem value="bg-green-300">Green</SelectItem>
                         <SelectItem value="bg-yellow-300">Yellow</SelectItem>
