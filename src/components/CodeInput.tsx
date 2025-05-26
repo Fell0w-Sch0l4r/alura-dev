@@ -65,7 +65,7 @@ function CodeInput() {
     },
   });
 
-  const [code, setCode] = useState('console.log("Hello World")');
+  const [code, setCode] = useState('');
   const [language, setLanguage] = useState("");
   const [backgroundColor, setBackgroundColor] = useState("");
 
@@ -119,6 +119,7 @@ function CodeInput() {
           } rounded-xl h-fit flex items-center justify-center p-5 mb-10 lg:w-6/11 xl:w-230 xl:ml-10`}
         >
           <Editor
+          placeholder="Write your code here"
             value={code}
             onValueChange={setCode}
             highlight={(code) => highlightCode(language, code)}
