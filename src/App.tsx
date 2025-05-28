@@ -3,12 +3,26 @@ import "./App.css";
 
 import NavBar from "./components/NavBar";
 import CodeInput from "./components/CodeInput";
+import CodeGalery from "./components/CodeGalery";
+
+interface Code {
+  backGroundColor: string;
+  code: string;
+  description: string;
+  language: string;
+  title: string;
+}
 
 function App() {
 	
 	const [activeMenu, setActiveMenu] = useState<"editor" | "list">("editor");
 	function handleMenuSelect(menu: "editor" | "list") {
 		setActiveMenu(menu);
+	}
+
+	const [codeList, setCodeList] = useState<Code[]>([])
+	function getCode(code: Code){
+		setCodeList([...codeList, code])
 	}
 	
 	return (
@@ -44,7 +58,7 @@ function App() {
 				</div>
 				<section className=" border-green-400 mt-6 w-11/12 mx-auto lg:w-9/12 text-white">
 					
-					{activeMenu === "editor" && <CodeInput/>}
+					{activeMenu === "editor"? <CodeInput getCode={getCode}/> : <CodeGalery Codes={codeList}/>}
 					
 				</section>
 			</main>
