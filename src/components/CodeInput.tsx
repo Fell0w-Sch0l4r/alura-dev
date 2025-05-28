@@ -53,8 +53,19 @@ const formSchema = z.object({
     })
     .min(1, "Please select a color"),
 });
+interface Code {
+  backGroundColor: string;
+  code: string;
+  description: string;
+  language: string;
+  title: string;
+}
 
-function CodeInput() {
+interface Props{
+  getCode(code: Code): void
+}
+
+function CodeInput({getCode}: Props) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -72,13 +83,14 @@ function CodeInput() {
   function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    const program = {
+    const program: Code = {
       ...values,
       code,
     };
     console.log(program);
     form.reset();
 
+    getCode(program)
     setLanguage(""); // <-- reset to default
     setBackgroundColor(""); // <-- reset to default
     setCode(''); // (optional) reset code editor
