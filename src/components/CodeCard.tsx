@@ -35,9 +35,8 @@ function CodeCard({
     }
   };
   return (
-    <div className={`bg-slate-950 mb-10 rounded-xl`}>
+    <div className={`bg-slate-950 mb-10 rounded-xl`} ref={cardRef}>
       <div
-        ref={cardRef}
         className={`${backGroundColor} rounded-xl h-fit flex items-center justify-center mt-5 p-5`}
       >
         <div className="w-full  rounded-xl">
