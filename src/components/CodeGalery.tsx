@@ -1,3 +1,4 @@
+import type { Dispatch, SetStateAction } from "react";
 import CodeCard from "./CodeCard";
 
 interface Code {
@@ -10,14 +11,18 @@ interface Code {
 }
 
 interface Props {
-    Codes: Code[];
+  Codes: Code[];
+  setCode: Dispatch<SetStateAction<Code[]>>;
 }
 
-function CodeGalery({ Codes } : Props) {
+function CodeGalery({ Codes, setCode } : Props) {
+    function deleteCode(id: string){
+        setCode(Codes.filter(code => code.id !== id))
+    }
     return(
         <>
         {Codes.map((code) => (
-            <CodeCard key={code.id} {...code}/>
+            <CodeCard key={code.id} {...code} handleDelete={deleteCode}/>
         ))}
         </>
     )

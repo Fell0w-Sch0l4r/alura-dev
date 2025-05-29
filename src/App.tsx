@@ -60,7 +60,7 @@ function App() {
 				</div>
 				<section className=" border-green-400 mt-6 w-11/12 mx-auto lg:w-9/12 text-white">
 					
-					{activeMenu === "editor"? <CodeInput getCode={getCode}/> : <CodeGalery Codes={codeList}/>}
+					{activeMenu === "editor"? <CodeInput getCode={getCode}/> : <CodeGalery Codes={codeList} setCode={setCodeList}/>}
 					
 				</section>
 			</main>
