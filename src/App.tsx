@@ -22,7 +22,8 @@ function App() {
 
 	const [codeList, setCodeList] = useState<Code[]>([])
 	function getCode(code: Code){
-		setCodeList([...codeList, code])
+		setCodeList([code, ...codeList])
+		handleMenuSelect("list")
 	}
 	
 	return (
