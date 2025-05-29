@@ -6,6 +6,7 @@ interface Code {
   description: string;
   language: string;
   title: string;
+  id: string;
 }
 
 interface Props {
@@ -15,8 +16,8 @@ interface Props {
 function CodeGalery({ Codes } : Props) {
     return(
         <>
-        {Codes.map((code, idx) => (
-            <CodeCard key={code.title + idx} {...code}/>
+        {Codes.map((code) => (
+            <CodeCard key={code.id} {...code}/>
         ))}
         </>
     )

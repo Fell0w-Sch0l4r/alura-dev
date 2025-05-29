@@ -11,6 +11,7 @@ interface Code {
   description: string;
   language: string;
   title: string;
+  id: string;
 }
 
 function App() {

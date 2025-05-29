@@ -12,7 +12,7 @@ interface Props {
   description: string;
   language: string;
   title: string;
-  key: string;
+  id: string;
 }
 
 function CodeCard({

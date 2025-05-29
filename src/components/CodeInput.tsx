@@ -59,6 +59,7 @@ interface Code {
   description: string;
   language: string;
   title: string;
+  id: string;
 }
 
 interface Props{
@@ -86,6 +87,7 @@ function CodeInput({getCode}: Props) {
     const program: Code = {
       ...values,
       code,
+      id: crypto.randomUUID()
     };
     console.log(program);
     form.reset();
