@@ -1,14 +1,9 @@
 import type { Dispatch, SetStateAction } from "react";
 import CodeCard from "./CodeCard";
+import { setCodesToStorage } from "@/lib/codeStorage";
+import type { Code } from "@/types/code";
 
-interface Code {
-  backGroundColor: string;
-  code: string
-  description: string;
-  language: string;
-  title: string;
-  id: string;
-}
+
 
 interface Props {
   Codes: Code[];
@@ -18,6 +13,7 @@ interface Props {
 function CodeGalery({ Codes, setCode } : Props) {
     function deleteCode(id: string){
         setCode(Codes.filter(code => code.id !== id))
+        setCodesToStorage(Codes.filter((code) => code.id !== id));
     }
     return(
         <>
