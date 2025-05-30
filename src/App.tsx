@@ -4,15 +4,10 @@ import "./App.css";
 import NavBar from "./components/NavBar";
 import CodeInput from "./components/CodeInput";
 import CodeGalery from "./components/CodeGalery";
+import type { Code } from "./types/code";
+import { getCodesFromStorage, setCodesToStorage } from "./lib/codeStorage";
 
-interface Code {
-  backGroundColor: string;
-  code: string;
-  description: string;
-  language: string;
-  title: string;
-  id: string;
-}
+
 
 function App() {
 	
@@ -21,9 +16,10 @@ function App() {
 		setActiveMenu(menu);
 	}
 
-	const [codeList, setCodeList] = useState<Code[]>([])
+	const [codeList, setCodeList] = useState<Code[]>(getCodesFromStorage())
 	function getCode(code: Code){
 		setCodeList([...codeList, code])
+		setCodesToStorage([...codeList, code]);
 		handleMenuSelect("list")
 	}
 	
