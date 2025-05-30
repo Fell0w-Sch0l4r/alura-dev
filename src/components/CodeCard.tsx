@@ -55,7 +55,7 @@ function CodeCard({
 
       <div className={`p-5`}>
         <h1 className={`text-2xl text-bold mb-5`}>{title}</h1>
-        <p className={``}>{description}</p>
+        <p className={`break-words`}>{description}</p>
       </div>
 
       <div className="flex justify-between">
