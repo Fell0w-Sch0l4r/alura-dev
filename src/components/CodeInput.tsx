@@ -38,6 +38,7 @@ import {
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { Textarea } from "./ui/textarea";
+import type { Code } from "@/types/code";
 
 const formSchema = z.object({
   title: z.string().min(2).max(50),
@@ -53,14 +54,7 @@ const formSchema = z.object({
     })
     .min(1, "Please select a color"),
 });
-interface Code {
-  backGroundColor: string;
-  code: string;
-  description: string;
-  language: string;
-  title: string;
-  id: string;
-}
+
 
 interface Props{
   getCode(code: Code): void
