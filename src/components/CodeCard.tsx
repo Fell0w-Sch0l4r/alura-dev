@@ -39,25 +39,24 @@ function CodeCard({
 
   return (
     <div className={`bg-slate-950 mb-10 rounded-xl`}>
-      <div ref={cardRef}>
-        <div
-          className={`${backGroundColor} rounded-xl h-fit flex items-center justify-center mt-5 p-5`}
-        >
-          <div className="w-full  rounded-xl">
-            <SyntaxHighlighter
-              language={language}
-              style={oneDark}
-              showLineNumbers={true}
-            >
-              {code}
-            </SyntaxHighlighter>
-          </div>
+      <div
+        className={`${backGroundColor} rounded-xl h-fit flex items-center justify-center mt-5 p-5`}
+        ref={cardRef}
+      >
+        <div className="w-full  rounded-xl">
+          <SyntaxHighlighter
+            language={language}
+            style={oneDark}
+            showLineNumbers={true}
+          >
+            {code}
+          </SyntaxHighlighter>
         </div>
+      </div>
 
-        <div className={`p-5`}>
-          <h1 className={`text-2xl text-bold mb-5`}>{title}</h1>
-          <p className={`break-words`}>{description}</p>
-        </div>
+      <div className={`p-5`}>
+        <h1 className={`text-2xl text-bold mb-5`}>{title}</h1>
+        <p className={`break-words`}>{description}</p>
       </div>
 
       <div className="flex justify-between">
