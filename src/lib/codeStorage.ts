@@ -5,7 +5,7 @@ export function getCodesFromStorage(): Code[]{
     const userCodesJson: string | null = localStorage.getItem("userCodes")
 
     if(userCodesJson){
-   userCodes.push(JSON.parse(userCodesJson))
+   userCodes.push(...JSON.parse(userCodesJson))
         return userCodes
     }
 
