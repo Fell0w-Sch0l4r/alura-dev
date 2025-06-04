@@ -29,7 +29,10 @@ function CodeCard({
 
   const handleDownload = async () => {
     if (cardRef.current) {
+      const originalWidth = cardRef.current.style.width;
+      cardRef.current.style.width = "fit-content";
       const dataUrl = await toPng(cardRef.current);
+      cardRef.current.style.width = originalWidth;
       const link = document.createElement("a");
       link.download = `${title}.png`;
       link.href = dataUrl;
