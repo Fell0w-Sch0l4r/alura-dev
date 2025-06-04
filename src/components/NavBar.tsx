@@ -107,7 +107,7 @@ function NavBar({ activeMenu, handleMenuSelect }: NavBarProps) {
 													src="assets/images/CodingIcon.svg"
 													alt=""
 												/>
-												Editor de Código
+												Code Editor
 											</li>
 										</DrawerClose>
 										<DrawerClose>
@@ -125,7 +125,7 @@ function NavBar({ activeMenu, handleMenuSelect }: NavBarProps) {
 													src="assets/images/peopleIcon.svg"
 													alt=""
 												/>
-												Lista Códigos
+												Code List
 											</li>
 										</DrawerClose>
 										<DrawerClose>

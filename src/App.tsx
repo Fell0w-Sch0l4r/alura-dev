@@ -40,7 +40,7 @@ function App() {
 							}`}
 						>
 							<img src="assets/images/CodingIcon.svg" alt="" />
-							Editor de Código
+							Code Editor
 						</li>
 						<li
 							onClick={() => handleMenuSelect("list")}
@@ -49,7 +49,7 @@ function App() {
 							}`}
 						>
 							<img src="assets/images/peopleIcon.svg" alt="" />
-							Lista Códigos
+							Code List
 						</li>
 						
 					</ul>
